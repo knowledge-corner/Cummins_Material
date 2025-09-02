@@ -1,0 +1,19 @@
+Assignment Day 2- 
+
+Ex. Develop a Python program to manage the inventory of a retail store using a dictionary.
+- Initialize an inventory dictionary with product names as keys and quantities as values.
+- Create a function to add a new product to the inventory:
+    - If the product already exists, update its quantity.
+    - If the product does not exist, add it to the inventory.
+    - Display a message indicating the addition of the product and its quantity.
+- Create a function to display the current inventory:
+    - Iterate through the dictionary and print each product's name and quantity.
+
+- Create a function to remove a product from the inventory:
+    - If the product exists, remove it from the inventory.
+    - Display a message indicating the removal of the product.
+    - If the product does not exist, display a message indicating its absence.
+
+
+# Initialize an inventory dictionary with product names as keys and quantities as values.
+inventory = {"Laptop": 15, "Smartphone": 25, "Tablet": 10, "Headphones": 30, "Charger": 50}
