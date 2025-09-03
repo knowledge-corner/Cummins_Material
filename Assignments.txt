@@ -17,3 +17,6 @@ Ex. Develop a Python program to manage the inventory of a retail store using a d
 
 # Initialize an inventory dictionary with product names as keys and quantities as values.
 inventory = {"Laptop": 15, "Smartphone": 25, "Tablet": 10, "Headphones": 30, "Charger": 50}
+
+
+------------------------------------------------------------------------------------------------------
