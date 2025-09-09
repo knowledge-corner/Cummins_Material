@@ -1,0 +1,46 @@
+# ----------------------
+# API Resources
+# ----------------------
+class GetAllShipments(Resource):
+    def get(self):
+        shipments = Shipment.query.all()
+        return tuple(map(shipment_to_dict, shipments)), 200
+    
+    def post(self):
+        data = request.get_json()
+        if not all(k in data for k in ('origin', 'destination')):
+            return {"error": "Missing required fields"}, 400
+        shipment = add_shipment(**data)
+        return shipment_to_dict(shipment), 201
+
+class HandlingShipment(Resource):
+    def get(self, consignment_id):
+        shipment = Shipment.query.filter_by(consignment_id=consignment_id).first()
+        if not shipment:
+            return {"error": "Shipment not found"}, 404
+        return shipment_to_dict(shipment), 200
+
+    def put(self, consignment_id):
+        shipment = Shipment.query.filter_by(consignment_id=consignment_id).first()
+        if not shipment:
+            return {"error": "Shipment not found"}, 404
+        data = request.get_json()
+        if 'status' not in data:
+            return {"error": "Status is required"}, 400
+        shipment.status = data['status']
+        db.session.commit()
+        return shipment_to_dict(shipment), 200
+
+    def delete(self, consignment_id):
+        shipment = Shipment.query.filter_by(consignment_id=consignment_id).first()
+        if not shipment:
+            return {"error": "Shipment not found"}, 404
+        db.session.delete(shipment)
+        db.session.commit()
+        return {"message": "Shipment deleted"}, 200
+
+# ----------------------
+# Register API Endpoints
+# ----------------------
+api.add_resource(GetAllShipments, '/api/shipments')
+api.add_resource(HandlingShipment, '/api/shipments/<string:consignment_id>')
