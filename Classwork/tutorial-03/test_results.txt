@@ -1,26 +1,5 @@
-```
-Test case 1:
-  Input: is_prime(2)
-  Expected output: True
-  Actual output: True
-
-Test case 2:
-  Input: get_primes(10)
-  Expected output: [2, 3, 5, 7]
-  Actual output: [2, 3, 5, 7]
-
-Test case 3:
-  Input: is_prime(4)
-  Expected output: False
-  Actual output: False
-
-Test case 4:
-  Input: get_primes(20)
-  Expected output: [2, 3, 5, 7, 11, 13, 17, 19]
-  Actual output: [2, 3, 5, 7, 11, 13, 17, 19]
-
-Test case 5:
-  Input: is_prime(7)
-  Expected output: True
-  Actual output: True
-```
+Input: 10, Expected Output: 10 is even., Actual Output: 10 is even.
+Input: 23, Expected Output: 23 is odd., Actual Output: 23 is odd.
+Input: 44, Expected Output: 44 is even., Actual Output: 44 is even.
+Input: 57, Expected Output: 57 is odd., Actual Output: 57 is odd.
+Input: 92, Expected Output: 92 is even., Actual Output: 92 is even.
