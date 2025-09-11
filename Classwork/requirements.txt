@@ -4,3 +4,5 @@ google-genai>=1.33.0
 gradio>=5.22.0
 groq>=0.31.1
 pypdf>=3.14.0
+crewai>=0.9.3
+crewai-tools>=0.9.3
