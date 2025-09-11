@@ -1,61 +1,51 @@
 ```python
 # solutions.py
 
-def calculate_factorial(n):
+def is_prime(n):
     """
-    Calculate the factorial of a given integer.
+    Checks if a number is prime.
 
     Args:
-        n (int): The input number.
+        n (int): The number to check.
 
     Returns:
-        int: The factorial of n.
-
-    Raises:
-        ValueError: If n is a negative number.
+        bool: True if the number is prime, False otherwise.
     """
-    if not isinstance(n, int):
-        raise TypeError("Input must be an integer.")
-    if n < 0:
-        raise ValueError("Input must be a non-negative integer.")
-    elif n == 0 or n == 1:
-        return 1
-    else:
-        result = 1
-        for i in range(2, n + 1):
-            result *= i
-        return result
+    if n <= 1:
+        return False
+    if n == 2:
+        return True
+    if n % 2 == 0:
+        return False
+    max_divisor = int(n**0.5) + 1
+    for d in range(3, max_divisor, 2):
+        if n % d == 0:
+            return False
+    return True
 
 
-def calculate_factorial_recursive(n):
+def get_primes(n):
     """
-    Calculate the factorial of a given integer using recursion.
+    Generates a list of prime numbers up to n.
 
     Args:
-        n (int): The input number.
+        n (int): The upper limit.
 
     Returns:
-        int: The factorial of n.
-
-    Raises:
-        ValueError: If n is a negative number.
+        list: A list of prime numbers up to n.
     """
-    if not isinstance(n, int):
-        raise TypeError("Input must be an integer.")
-    if n < 0:
-        raise ValueError("Input must be a non-negative integer.")
-    elif n == 0 or n == 1:
-        return 1
-    else:
-        return n * calculate_factorial_recursive(n - 1)
+    primes = []
+    for i in range(2, n + 1):
+        if is_prime(i):
+            primes.append(i)
+    return primes
 
 
 def main():
-    # Test the functions
-    numbers = [0, 1, 2, 3, 4, 5]
-    for num in numbers:
-        print(f"Factorial of {num} (iterative): {calculate_factorial(num)}")
-        print(f"Factorial of {num} (recursive): {calculate_factorial_recursive(num)}")
+    # Example usage
+    n = 100
+    primes = get_primes(n)
+    print(f"Prime numbers up to {n}: {primes}")
 
 
 if __name__ == "__main__":
