@@ -14,7 +14,7 @@ def run_crew(description):
 
 @app.get("/", response_class=HTMLResponse)
 async def read_form(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request})
+    return templates.TemplateResponse("index.html", {"request": request, "data" : ["Jane", "John", "Doe"]})
 
 @app.post("/generate", response_class=HTMLResponse)
 async def generate_code(description: str = Form(...)):
