@@ -1,22 +1,18 @@
+#pip install langgraph
+#pip install langchain_groq
+#pip install langchain_openai
 from dotenv import load_dotenv
 import os
 from langgraph.graph import StateGraph, END
 from langchain_openai import ChatOpenAI
-from langchain_groq import ChatGroq
 from app_tools import get_shipment_details_tool
 
 load_dotenv()
-
 # Define LLM
 llm = ChatOpenAI(
-    model=os.getenv("MODEL"), 
-    openai_api_key=os.getenv("API_KEY")
+    model=os.getenv("MODEL"),
+    api_key=os.getenv("API_KEY")
 )
-
-# llm = ChatGroq(
-#     model=os.getenv("MODEL"), 
-#     api_key=os.getenv("API_KEY")
-# )
 
 # Define States
 class Consignement(dict):
@@ -65,4 +61,3 @@ if __name__ == "__main__":
     initial_state = Consignement(consignment_id=consignment_id, status="", message="")
     final_state = app.invoke(initial_state)
     print(final_state["message"])
-

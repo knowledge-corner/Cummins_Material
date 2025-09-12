@@ -8,3 +8,4 @@ crewai>=0.9.3
 crewai-tools>=0.9.3
 langgraph>=0.3.3
 langchain_openai>=0.0.10
+langchain_groq >=0.0.6
