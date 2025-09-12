@@ -6,3 +6,5 @@ groq>=0.31.1
 pypdf>=3.14.0
 crewai>=0.9.3
 crewai-tools>=0.9.3
+langgraph>=0.3.3
+langchain_openai>=0.0.10
